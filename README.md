@@ -122,7 +122,8 @@ This is the Python script we'd like to execute.
 We'll verify everything's good to go by running
 
 ```bash
-sbatch ./slurm_run.sh test_gpu.py && tail -f logs/*
+sbatch ./slurm_run.sh test_gpu.py
+tail -f logs/*
 ```
 You should see output that looks a bit like this:
 
