@@ -84,7 +84,7 @@ Once you're logged in, run
 
 ![image](https://github.com/uccs-math-clinic/uccs-incline/assets/17204901/f001d0b4-8032-41bb-881e-ebb5cf238209)
 
-At this point, go touch some grass or something, since this will take about 10 minutes.
+At this point, go touch some grass or something, since this will take about 30 minutes.
 
 ### Step 4 - Run your script
 
