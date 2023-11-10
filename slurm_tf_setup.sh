@@ -7,7 +7,7 @@ if [[ -z "${UCCS_USERNAME}" ]]; then
   echo "Enter your UCCS username, and then hit [Enter]:"
   read UCCS_USERNAME
 
-  echo "Enter your job name (this should be short and descriptive, with NO spaces or special characters, e.g., my_cool_python_job), and then hit [Enter]:"
+  echo "Enter your job name (this should be short and descriptive, with NO spaces or special characters, e.g., gpu_test), and then hit [Enter]:"
   read JOB_NAME
 
   sed -i "s/UCCS_USERNAME=.*/UCCS_USERNAME=$UCCS_USERNAME/g" config.sh
@@ -33,8 +33,7 @@ if ! { conda env list | grep 'tf'; } >/dev/null 2>&1; then
 	echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
 	echo 'export LD_LIBRARY_PATH=$CONDA_PREFIX/lib/:$CUDNN_PATH/lib:$LD_LIBRARY_PATH' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
 
-	pip install -r requirements.txt
-	mkdir /mmfs1$HOME/{logs,data} || true
+	pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu118
 	ln -s /mmfs1$HOME/{logs,data} . || true
 else
 	source $HOME/.bashrc
