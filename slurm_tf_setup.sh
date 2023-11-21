@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+module load anaconda
+
 source ./config.sh
 
 if [[ -z "${UCCS_USERNAME}" ]]; then
